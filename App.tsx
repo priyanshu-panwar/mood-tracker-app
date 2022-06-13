@@ -1,17 +1,13 @@
-import { StatusBar } from 'expo-status-bar';
+import { NavigationContainer } from '@react-navigation/native';
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { BottomTabsNavigator } from './screens/BottomTabs.navigator';
 
-import Header from './components/Header';
-import Footer from './components/Footer';
-
-export default function App() {
+const App: React.FC = () => {
   return (
-    <View style={styles.container}>
-      <Header />
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <Footer />
-      <StatusBar style="auto" />
-    </View>
+  <NavigationContainer>
+    <BottomTabsNavigator />
+  </NavigationContainer>    
   );
 }
 
@@ -23,3 +19,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default App;
