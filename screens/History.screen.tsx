@@ -1,13 +1,15 @@
-import React from 'react';
-import { Text, View } from 'react-native';
-
+import React from "react";
+import { ScrollView, Text, View } from "react-native";
+import { useAppContext } from "../App.provider";
+import { MoodItemRow } from "../components/MoodItemRow";
 
 export const History: React.FC = () => {
-    return (
-        <View>
-            <Text>
-                This is History Screen
-            </Text>
-        </View>
-    )
-}
+  const appContext = useAppContext();
+  return (
+    <ScrollView>
+      {appContext.moodList.map((item) => (
+        <MoodItemRow key={item.timestamp} item={item} />
+      ))}
+    </ScrollView>
+  );
+};

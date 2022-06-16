@@ -5,23 +5,14 @@ import { format } from "date-fns";
 import { MoodPicker } from "../components/MoodPicker";
 import { MoodOptionType, MoodOptionWithTimestamp } from "../types";
 import { MoodItemRow } from "../components/MoodItemRow";
+import { useAppContext } from "../App.provider";
 
 export const Home: React.FC = () => {
-  const [moodList, setMoodList] = useState<MoodOptionWithTimestamp[]>([]);
-
-  const handleSelectedMood = useCallback((selectedMood: MoodOptionType) => {
-    setMoodList((current) => [
-      ...current,
-      { mood: selectedMood, timestamp: Date.now() },
-    ]);
-  }, []);
+  const appContext = useAppContext();
 
   return (
     <View style={styles.container}>
-      <MoodPicker handleSelectedMood={handleSelectedMood} />
-      {moodList.map((item) => (
-        <MoodItemRow key={item.timestamp} item={item} />
-      ))}
+      <MoodPicker handleSelectedMood={appContext.handleSelectedMood} />
     </View>
   );
 };

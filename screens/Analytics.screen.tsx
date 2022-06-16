@@ -1,13 +1,12 @@
-import React from 'react';
-import { Text, View } from 'react-native';
-
+import React from "react";
+import { Text, View } from "react-native";
+import { useAppContext } from "../App.provider";
 
 export const Analytics: React.FC = () => {
-    return (
-        <View>
-            <Text>
-                This is Analytics Screen
-            </Text>
-        </View>
-    )
-}
+  const appContext = useAppContext();
+  return (
+    <View>
+      <Text>Analy</Text>
+    </View>
+  );
+};
