@@ -99,6 +99,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 10,
     textAlign: "center",
+    fontFamily: theme.fontKalam,
   },
   container: {
     borderWidth: 2,
@@ -116,6 +117,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginBottom: 20,
     color: theme.colorWhite,
+    fontFamily: theme.fontKalam,
   },
   button: {
     backgroundColor: theme.colorPurple,

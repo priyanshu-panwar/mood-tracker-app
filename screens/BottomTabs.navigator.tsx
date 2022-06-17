@@ -4,6 +4,7 @@ import { Home } from "./Home.screen";
 import { History } from "./History.screen";
 import { Analytics } from "./Analytics.screen";
 import { Ionicons } from "@expo/vector-icons";
+import { theme } from "../theme";
 
 const BottomTabs = createBottomTabNavigator();
 
@@ -37,17 +38,29 @@ export const BottomTabsNavigator: React.FC = () => {
       <BottomTabs.Screen
         name="Home"
         component={Home}
-        options={{ title: "Today's Mood" }}
+        options={{
+          title: "Today's Mood",
+          headerTitleStyle: { fontFamily: theme.fontKalam, fontSize: 25 },
+          headerTitleAlign: "center",
+        }}
       />
       <BottomTabs.Screen
         name="History"
         component={History}
-        options={{ title: "Past Moods" }}
+        options={{
+          title: "Past Moods",
+          headerTitleStyle: { fontFamily: theme.fontKalam, fontSize: 25 },
+          headerTitleAlign: "center",
+        }}
       />
       <BottomTabs.Screen
         name="Analytics"
         component={Analytics}
-        options={{ title: "Analytics" }}
+        options={{
+          title: "Analytics",
+          headerTitleStyle: { fontFamily: theme.fontKalam, fontSize: 25 },
+          headerTitleAlign: "center",
+        }}
       />
     </BottomTabs.Navigator>
   );
