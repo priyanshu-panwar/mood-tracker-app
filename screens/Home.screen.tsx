@@ -1,10 +1,7 @@
-import React, { useCallback, useState } from "react";
-import { View, StyleSheet, Text } from "react-native";
-import { format } from "date-fns";
+import React from "react";
+import { View, StyleSheet } from "react-native";
 
 import { MoodPicker } from "../components/MoodPicker";
-import { MoodOptionType, MoodOptionWithTimestamp } from "../types";
-import { MoodItemRow } from "../components/MoodItemRow";
 import { useAppContext } from "../App.provider";
 
 export const Home: React.FC = () => {
