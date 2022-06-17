@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, Pressable, Image } from "react-native";
 import { MoodOptionType } from "../types";
 import { theme } from "../theme";
 
-const imgSrc = require("../assets/fred.png");
+const imgSrc = require("../assets/freaky-fred.webp");
 
 const moodOptions: MoodOptionType[] = [
   { emoji: "🧑‍💻", description: "studious" },
@@ -129,7 +129,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   image: {
-    height: 100,
-    width: 100,
+    height: 250,
+    // width: 145,
+    aspectRatio: 0.61,
   },
 });
