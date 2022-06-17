@@ -1,0 +1,26 @@
+name: Expo Publish
+
+on:
+  push:
+    branches:
+      - "*"
+
+jobs:
+  expo-publish:
+    name: Expo Publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16.14.0
+      - uses: expo/expo-github-action@v5
+        with:
+          expo-packager: yarn
+          expo-username: ${{ secrets.EXPO_CLI_USERNAME }}
+          expo-password: ${{ secrets.EXPO_CLI_PASSWORD }}
+          expo-cache: true
+      - name: Install Packages
+        run: yarn install
+      - name: Expo Publish Channel
+        run: expo publish --non-interactive --release-channel default
