@@ -1,8 +1,10 @@
 import React, { useCallback, useState } from "react";
-import { View, Text, StyleSheet, Pressable } from "react-native";
+import { View, Text, StyleSheet, Pressable, Image } from "react-native";
 
 import { MoodOptionType } from "../types";
 import { theme } from "../theme";
+
+const imgSrc = require("../assets/fred.png");
 
 const moodOptions: MoodOptionType[] = [
   { emoji: "🧑‍💻", description: "studious" },
@@ -20,13 +22,26 @@ export const MoodPicker: React.FC<MoodPickerProps> = ({
   handleSelectedMood,
 }) => {
   const [selectedMood, setSelectedMood] = useState<MoodOptionType>();
+  const [hasSelected, setHasSelected] = useState<boolean>(false);
 
   const handleSelect = useCallback(() => {
     if (selectedMood) {
       handleSelectedMood(selectedMood);
       setSelectedMood(undefined);
+      setHasSelected(true);
     }
   }, [handleSelectedMood, selectedMood]);
+
+  if (hasSelected) {
+    return (
+      <View style={styles.container}>
+        <Image source={imgSrc} style={styles.image} />
+        <Pressable style={styles.button} onPress={() => setHasSelected(false)}>
+          <Text style={styles.buttonText}>Choose Another !</Text>
+        </Pressable>
+      </View>
+    );
+  }
 
   return (
     <View style={styles.container}>
@@ -91,6 +106,7 @@ const styles = StyleSheet.create({
     margin: 10,
     borderRadius: 10,
     padding: 20,
+    alignItems: "center",
   },
   heading: {
     fontSize: 20,
@@ -111,5 +127,9 @@ const styles = StyleSheet.create({
     color: theme.colorWhite,
     textAlign: "center",
     fontWeight: "bold",
+  },
+  image: {
+    height: 100,
+    width: 100,
   },
 });
